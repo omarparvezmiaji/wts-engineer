@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>4657827454-62uuqmkful432scu6eukqcn9020l400c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.4657827454-62uuqmkful432scu6eukqcn9020l400c</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>4657827454-cid32kgi8mfqqn6qm8e3iajatoemk347.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCNJdBY5dS_mhtXQsHVb42kb7ASr1YMolk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>4657827454</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.wts.wtsSupportEngineer</string>
+	<key>PROJECT_ID</key>
+	<string>wood-tech-soluti-1520058967118</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wood-tech-soluti-1520058967118.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:4657827454:ios:8ba5e706a326498f15522f</string>
+</dict>
+</plist>

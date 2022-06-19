@@ -1,0 +1,100 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '2'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.2'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply plugin: 'com.google.gms.google-services'
+android {
+    compileSdkVersion 30
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.wts.wts_support_engineer"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+    signingConfigs {
+        debugConfig {
+            storeFile file('debug.keystore')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+        releaseConfig {
+            storeFile file('../Keystore/wts_support_engineer.jks')
+            keyAlias 'key0'
+            keyPassword '123456'
+            storePassword '123456'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.releaseConfig
+            minifyEnabled false
+            shrinkResources false
+            //  minifyEnabled false
+            //   proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            android.applicationVariants.all { variant ->
+//                variant.outputs.all {
+//                    outputFileName = "${"ProyojanApp_Live_" + variant.versionName + "_" + formattedDate}.apk"
+//                }
+//            }
+        }
+        debug {
+            signingConfig signingConfigs.debugConfig
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            //   minifyEnabled false
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // versionNameSuffix "- stage " + buildDate
+//            android.applicationVariants.all { variant ->
+//                variant.outputs.all {
+//                    outputFileName = "${"ProyojanApp_Satage_" + variant.versionName + "_" + formattedDate}.apk"
+//                }
+//            }
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation platform('com.google.firebase:firebase-bom:28.3.0')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+
+
+}
